@@ -1,0 +1,125 @@
+
+/* Global Styles */
+.home-btn {
+    position: absolute;
+    top: 15px; /* Slightly offset from the top */
+    right: 20px; /* Aligns button in the top right corner */
+    background-color: #f0f8ff;
+    color: #0056b3;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #f0f8ffb0; /* Darkens on hover */
+}
+
+body {
+    background-color: #f0f8ff;  /* Soft light blue background */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    height: 100vh;  /* Ensure the body takes up full viewport height */
+    display: flex;
+    flex-direction: column;  /* Column layout for the homepage */
+    justify-content: center;  /* Centers horizontally and vertically */
+    align-items: center;
+}
+
+.top-bar {
+    background-color: #007bff;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* Animation */
+    opacity: 0;
+    animation: slideInTopBar 1s ease-out forwards;
+}
+
+@keyframes slideInTopBar {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin-top: 50px;
+
+    /* Animation */
+    opacity: 0;
+    animation: fadeInWelcome 1.5s ease-out forwards;
+}
+
+@keyframes fadeInWelcome {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #007bff;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+button.btn-signup {
+    background-color: #007bff;
+    border-color: #0056b3;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button.btn-signup:hover {
+    background-color: #0056b3;
+    border-color: #00408a;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+}
