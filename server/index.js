@@ -67,23 +67,33 @@ app.post("/logIn/authenticate", async (req, res) => {
     }
   });
 
-// Get user's email by ID
-app.get("/logIn/:id", async (req, res) => {
+// POST route for creating an event
+app.post("/createEvent", async (req, res) => {
   try {
-    const { id } = req.params;
-    const result = await pool.query("SELECT email FROM userLogIn WHERE id = $1", [id]);
+    const { eventName, eventDes, dateOfEvent, eventPassword } = req.body;
 
-    if (result.rows.length === 0) {
-      return res.status(404).send("User not found");
+    if (!eventName || !eventDes || !dateOfEvent || !eventPassword) {
+      return res.status(400).json({ error: "Missing required fields" });
     }
 
-    res.json(result.rows[0]);
+    const query = `
+      INSERT INTO events (eventName, eventDes, dateOfEvent, eventPassword)
+      VALUES ($1, $2, $3, $4)
+      RETURNING event_id;
+    `;
+    
+    const result = await pool.query(query, [eventName, eventDes, dateOfEvent, eventPassword]);
+
+    const eventId = result.rows[0].event_id;
+
+    res.status(201).json({ message: "Event created successfully", eventId });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server error");
+    console.error("Error creating event:", err);
+    res.status(500).json({ error: "Failed to create event" });
   }
 });
 
+// Start the server
 app.listen(5000, () => {
   console.log("Server has started on port 5000");
 });

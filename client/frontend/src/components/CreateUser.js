@@ -1,5 +1,6 @@
+
 import React, { Fragment, useState } from "react";
-import './CreateUser.css'; // Custom CSS for styling
+import '../cssFolder/CreateUser.css'; // Custom CSS for styling
 
 const CreateUser = ({ goToHomePage, goToSignIn, handleSignUpSuccess }) => {
     const [email, setEmail] = useState("");

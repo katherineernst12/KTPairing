@@ -1,6 +1,5 @@
-// src/components/HomePage.js
 import React from 'react';
-import './HomePage.css'; // Ensure you import the custom CSS for styling
+import '../cssFolder/HomePage.css'; // Ensure you import the custom CSS for styling
 
 const HomePage = ({ goToCreateUser}) => {
   return (
@@ -20,7 +19,7 @@ const HomePage = ({ goToCreateUser}) => {
 
         {/* Go to Create User Button */}
         <button className="btn-signup" onClick={goToCreateUser}>
-          Create an account
+          Log In Or Create An Account
         </button>
         
       </div>

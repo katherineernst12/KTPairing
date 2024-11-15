@@ -3,32 +3,41 @@ import './App.css'; // Your main styles
 import CreateUser from './components/CreateUser'; // CreateUser form
 import HomePage from './components/HomePage'; // Homepage component
 import SignIn from './components/SignIn'; // SignIn component
-import LandingPage from './components/LandingPage'; // New LandingPage for logged-in users
+import LandingPage from './components/LandingPage'; // LandingPage for logged-in users
+import CreateEvent from './components/CreateEvent'; // CreateEvent component
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home"); // State to track current page ("home", "createUser", "signIn", "landing")
-  const [user, setUser] = useState(null); // State to track if the user is logged in
+  const [currentPage, setCurrentPage] = useState("home"); // Track current page
+  const [user, setUser] = useState(null); // Track logged-in user
 
   const goToCreateUser = () => {
-    setCurrentPage("createUser"); // Navigate to CreateUser page
+    setCurrentPage("createUser");
   };
 
   const goToHomePage = () => {
-    setCurrentPage("home"); // Navigate to HomePage
+    setCurrentPage("home");
   };
 
   const goToSignInPage = () => {
-    setCurrentPage("signIn"); // Navigate to SignIn page
+    setCurrentPage("signIn");
   };
 
   const handleSignUpSuccess = (userData) => {
-    setUser(userData); // Set the user data on successful sign-up
-    setCurrentPage("landing"); // Navigate to the landing page after sign-up
+    setUser(userData); 
+    setCurrentPage("landing"); // Navigate to Landing Page after sign-up
   };
 
   const handleSignIn = (userData) => {
-    setUser(userData); // Set the user data on successful sign-in
-    setCurrentPage("landing"); // Show the landing page after sign-in
+    setUser(userData);
+    setCurrentPage("landing"); // Show the Landing Page after sign-in
+  };
+
+  const navigateToCreateEvent = () => {
+    setCurrentPage("createEvent"); // Navigate to Create Event page
+  };
+
+  const navigateBackToLandingPage = () => {
+    setCurrentPage("landing"); // Go back to the Landing Page
   };
 
   return (
@@ -38,7 +47,8 @@ function App() {
         {currentPage === "home" && <HomePage goToCreateUser={goToCreateUser} />}
         {currentPage === "createUser" && <CreateUser goToHomePage={goToHomePage} goToSignIn={goToSignInPage} handleSignUpSuccess={handleSignUpSuccess} />}
         {currentPage === "signIn" && <SignIn goToHomePage={goToHomePage} handleSignIn={handleSignIn} />}
-        {currentPage === "landing" && user && <LandingPage user={user} />}
+        {currentPage === "landing" && user && <LandingPage user={user} navigateToCreateEvent={navigateToCreateEvent} />}
+        {currentPage === "createEvent" && <CreateEvent goToLandingPage={navigateBackToLandingPage} />}
       </div>
     </div>
   );

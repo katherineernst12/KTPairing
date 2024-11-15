@@ -1,0 +1,109 @@
+* Blue Banner */
+.top-bar {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+/* Card styling for the events container */
+.events-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 10000px; /* Increased width */
+  padding: 2rem;
+  margin-top: 30px; /* Space between the top bar and event container */
+  margin-bottom: 30px; /* Bottom margin for spacing */
+  height: auto; /* Ensures the container grows as more events are added */
+}
+
+.events-container:hover {
+  transform: translateY(-10px); /* Hover effect to lift the card */
+}
+
+h2 {
+  color: #007bff; /* Blue color for header */
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.event-item {
+  margin-bottom: 10px;
+}
+
+.join-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.join-btn:hover {
+  background-color: #0056b3;
+}
+
+.add-event-btn {
+  margin-top: 20px; /* Adds space above the button */
+  padding: 12px 18px;
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 100%; /* Makes the button span the entire width */
+}
+
+.add-event-btn:hover {
+  background-color: #138496;
+}
+
+/* Home Button */
+.home-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: #f0f8ff;
+  color: #0056b3;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #f0f8ffb0;
+}
+
+/* Global Styles */
+body {
+  background-color: #f0f8ff; /* Soft light blue background */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page {
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+}

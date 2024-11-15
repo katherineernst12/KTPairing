@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import './SignIn.css'; // Custom CSS for styling
+import '../cssFolder/SignIn.css'; // Custom CSS for styling
 
 const SignIn = ({ goToHomePage, handleSignIn }) => {
     const [email, setEmail] = useState("");
