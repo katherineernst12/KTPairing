@@ -1,4 +1,4 @@
-* Blue Banner */
+/* Blue Banner */
 .top-bar {
   background-color: #007bff; /* Blue color */
   color: white;
@@ -6,6 +6,10 @@
   padding: 15px;
   font-size: 1.5rem;
   width: 100%;
+  position: fixed; /* Fix the position to avoid being covered */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it's above other content */
 }
 
 /* Card styling for the events container */
@@ -15,11 +19,11 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 10000px; /* Increased width */
+  max-width: 900px; /* Increased width for a more spacious layout */
   padding: 2rem;
-  margin-top: 30px; /* Space between the top bar and event container */
-  margin-bottom: 30px; /* Bottom margin for spacing */
-  height: auto; /* Ensures the container grows as more events are added */
+  margin-top: 100px; /* Adjusted for the fixed top-bar */
+  margin-bottom: 30px;
+  height: auto;
 }
 
 .events-container:hover {
@@ -27,58 +31,63 @@
 }
 
 h2 {
-  color: #007bff; /* Blue color for header */
+  color: #007bff;
   font-weight: 600;
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* More spacing from events */
 }
 
+/* Style for individual event items */
 .event-item {
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
 }
 
+.event-item:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+/* Add an icon for the event (example: a simple circle with an icon or background image) */
+.event-item .icon {
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem; /* You can replace with an icon from a library */
+  margin-right: 20px;
+}
+
+/* Event Details */
+.event-details {
+  flex-grow: 1; /* Ensures this section expands */
+}
+
+.event-details strong {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.event-details p {
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Join Button */
 .join-btn {
   background-color: #007bff;
   color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-}
-
-.join-btn:hover {
-  background-color: #0056b3;
-}
-
-.add-event-btn {
-  margin-top: 20px; /* Adds space above the button */
-  padding: 12px 18px;
-  background-color: #17a2b8;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1.2rem;
-  width: 100%; /* Makes the button span the entire width */
-}
-
-.add-event-btn:hover {
-  background-color: #138496;
-}
-
-/* Home Button */
-.home-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background-color: #f0f8ff;
-  color: #0056b3;
-  font-size: 1rem;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
@@ -87,23 +96,40 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
-.home-btn:hover {
-  background-color: #f0f8ffb0;
+.join-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Button for adding event */
+.add-event-btn {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.add-event-btn:hover {
+  background-color: #138496;
 }
 
 /* Global Styles */
 body {
-  background-color: #f0f8ff; /* Soft light blue background */
+  background-color: #f0f8ff; /* Light blue background */
   font-family: 'Arial', sans-serif;
   margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 60px; /* Adjusted for fixed top bar */
 }
 
 .landing-page {
   text-align: center;
   width: 100%;
   max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }

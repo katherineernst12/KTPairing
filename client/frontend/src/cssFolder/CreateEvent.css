@@ -1,165 +1,160 @@
+
 /* Global Styles */
 body {
-    background-color: #f0f8ff; /* Soft light blue background */
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-  }
-  
-  .landing-page {
-    text-align: center;
-    width: 100%;
-    max-width: 1000px; /* Increased width for a wider layout */
-    padding: 0 20px; /* Add some padding to prevent content from touching the edges */
-  }
-  
-  /* Blue Banner */
-  .top-bar {
-    background-color: #007bff; /* Blue color */
-    color: white;
-    text-align: center;
-    padding: 18px 15px; /* Added padding for more breathing room */
-    font-size: 1.6rem;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a floating effect */
-  }
-  
-  /* Card styling for the events container */
-  .events-container {
-    background-color: white;
-    border-radius: 16px; /* Slightly more rounded corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 600px; /* Increased width for more space */
-    padding: 2rem;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  
-  .events-container:hover {
-    transform: translateY(-10px); /* Subtle hover lift effect */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-  }
-  
-  /* Header styling */
-  h2 {
-    color: #007bff; /* Blue color for header */
-    font-weight: 600;
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Event Item Styling */
-  .event-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #f9f9f9; /* Light gray background */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .event-item:hover {
-    background-color: #e2f0ff; /* Light blue background on hover */
-  }
-  
-  /* Join Button */
-  .join-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-left: 10px;
-  }
-  
-  .join-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight scale effect */
-  }
-  
-  /* Add Event Button */
-  .add-event-btn {
-    margin-top: 20px;
-    padding: 14px 20px;
-    background-color: #17a2b8;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.2rem;
-    width: 100%;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-event-btn:hover {
-    background-color: #138496; /* Darker teal on hover */
-  }
-  
-  /* Home Button */
-  .home-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #f0f8ff;
-    color: #007bff;
-    font-size: 1rem;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .home-btn:hover {
-    background-color: #e6f7ff; /* Lighter blue background on hover */
-  }
-  
-  /* Smooth transition for the hover effect on all buttons */
-  button {
-    transition: all 0.3s ease;
-  }
-  
-  /* Placeholder Text Styling */
-  input.form-control::placeholder,
-  textarea.form-control::placeholder {
-    color: #b0b0b0;
-    font-style: italic;
-  }
-  
-  /* Input fields */
-  input.form-control,
-  textarea.form-control {
-    padding: 16px 20px;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    border: 2px solid #007bff;
-    box-shadow: inset 0 0 5px rgba(0, 123, 255, 0.3);
-    transition: all 0.3s ease;
-  }
-  
-  input.form-control:focus,
-  textarea.form-control:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-    outline: none;
-  }
-  
-  input.form-control:hover,
-  textarea.form-control:hover {
-    border-color: #0056b3;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-  }
+  background-color: #f0f8ff; /* Soft light blue background */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  height: 100vh; /* Ensure the body takes up full viewport height */
+  display: flex; /* Using Flexbox to center content */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+
+/* Blue Banner */
+.top-bar {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  text-align: center;
+  padding: 18px 15px; /* Added padding for more breathing room */
+  font-size: 1.6rem;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for floating effect */
+}
+
+/* Card styling for the events container */
+.events-container {
+  background-color: white;
+  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 600px; /* Increased width for more space */
+  padding: 2rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.events-container:hover {
+  transform: translateY(-10px); /* Subtle hover lift effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Header styling */
+h2 {
+  color: #007bff; /* Blue color for header */
+  font-weight: 600;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Event Item Styling */
+.event-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-item:hover {
+  background-color: #e2f0ff; /* Light blue background on hover */
+}
+
+/* Join Button */
+.join-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 10px;
+}
+
+.join-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight scale effect */
+}
+
+/* Add Event Button */
+.add-event-btn {
+  margin-top: 20px;
+  padding: 14px 20px;
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.add-event-btn:hover {
+  background-color: #138496; /* Darker teal on hover */
+}
+
+/* Home Button */
+.home-btn {
+  position: absolute;
+  top: 15px; /* Slightly offset from the top */
+  right: 20px; /* Aligns button in the top right corner */
+  background-color: #f0f8ff;
+  color: #0056b3;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #f0f8ffb0; /* Darkens on hover */
+}
+
+/* Smooth transition for the hover effect on all buttons */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Placeholder Text Styling */
+input.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: #b0b0b0;
+  font-style: italic;
+}
+
+/* Input fields */
+input.form-control,
+textarea.form-control {
+  padding: 12px 16px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  border: 2px solid #007bff;
+  box-shadow: inset 0 0 5px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+  width: 95%; /* Make the input fields the same width as the button */
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+input.form-control:hover,
+textarea.form-control:hover {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}

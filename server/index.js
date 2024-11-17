@@ -93,7 +93,20 @@ app.post("/createEvent", async (req, res) => {
   }
 });
 
+// Complete the GET route for fetching events
+app.get("/showEvents", async (req, res) => {
+  try {
+    const query = `SELECT event_id, eventName, eventDes, dateOfEvent FROM events`;
+    const result = await pool.query(query);
+
+    res.status(200).json(result.rows);
+  } catch (err) {
+    console.error("Error fetching events:", err);
+    res.status(500).json({ error: "Failed to fetch events" });
+  }
+});
 // Start the server
 app.listen(5000, () => {
   console.log("Server has started on port 5000");
 });
+
