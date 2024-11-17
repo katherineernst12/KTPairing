@@ -1,4 +1,3 @@
-
 import React, { Fragment, useState } from "react";
 import '../cssFolder/CreateUser.css'; // Custom CSS for styling
 
@@ -29,7 +28,7 @@ const CreateUser = ({ goToHomePage, goToSignIn, handleSignUpSuccess }) => {
             const data = await response.json();
             console.log(data);
 
-            // On success, navigate to the LandingPage
+            // On success, pass the user data (including email) to LandingPage
             handleSignUpSuccess(data);  // Pass user data to LandingPage
         } catch (err) {
             setError(err.message);

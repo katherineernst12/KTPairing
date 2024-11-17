@@ -105,8 +105,42 @@ app.get("/showEvents", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch events" });
   }
 });
+
+app.post("/joinEvent", async (req, res) => {
+  try {
+      console.log("Received request to join event:", req.body); // Log incoming request
+
+      const { email, event_id } = req.body;
+
+      const checkEvent = await pool.query("SELECT * FROM events WHERE event_id = $1", [event_id]);
+      if (checkEvent.rows.length === 0) {
+          return res.status(404).json({ error: "Event not found" });
+      }
+
+      // Check if user is already in event
+      const checkUserInEvent = await pool.query(
+          "SELECT * FROM usersInEvents WHERE event_id = $1 AND email = $2",
+          [event_id, email]
+      );
+
+      if (checkUserInEvent.rows.length > 0) {
+          return res.status(400).json({ error: "User already joined the event" });
+      }
+
+      // Add user to event
+      const result = await pool.query(
+          "INSERT INTO usersInEvents (event_id, email) VALUES ($1, $2) RETURNING *",
+          [event_id, email]
+      );
+
+      res.status(200).json({ message: "User successfully added to event", data: result.rows[0] });
+  } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: "Failed to join event" });
+  }
+});
+
 // Start the server
 app.listen(5000, () => {
   console.log("Server has started on port 5000");
 });
-

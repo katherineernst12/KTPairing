@@ -32,7 +32,7 @@ const SignIn = ({ goToHomePage, handleSignIn }) => {
                 throw new Error(data.message || "Failed to sign in");
             }
     
-            // Call the handleSignIn function to pass the user data
+            // Call the handleSignIn function to pass the user data (including email)
             handleSignIn(data);
     
         } catch (err) {
