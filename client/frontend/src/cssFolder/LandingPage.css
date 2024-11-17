@@ -1,45 +1,43 @@
-/* Blue Banner */
-.top-bar {
-  background-color: #007bff; /* Blue color */
+/* Scoping the styles to .landing-page-container */
+.landing-page-container .top-bar {
+  background-color: #007bff;
   color: white;
   text-align: center;
   padding: 15px;
   font-size: 1.5rem;
   width: 100%;
-  position: fixed; /* Fix the position to avoid being covered */
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 1000;
 }
 
-/* Card styling for the events container */
-.events-container {
+.landing-page-container .events-container {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 900px; /* Increased width for a more spacious layout */
+  max-width: 900px;
   padding: 2rem;
-  margin-top: 100px; /* Adjusted for the fixed top-bar */
+  margin-top: 100px;
   margin-bottom: 30px;
   height: auto;
 }
 
-.events-container:hover {
-  transform: translateY(-10px); /* Hover effect to lift the card */
+.landing-page-container .events-container:hover {
+  transform: translateY(-10px);
 }
 
-h2 {
+.landing-page-container h2 {
   color: #007bff;
   font-weight: 600;
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 2rem; /* More spacing from events */
+  margin-bottom: 2rem;
 }
 
-/* Style for individual event items */
-.event-item {
+.landing-page-container .event-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,12 +49,11 @@ h2 {
   transition: transform 0.3s ease;
 }
 
-.event-item:hover {
-  transform: scale(1.02); /* Slightly enlarge on hover */
+.landing-page-container .event-item:hover {
+  transform: scale(1.02);
 }
 
-/* Add an icon for the event (example: a simple circle with an icon or background image) */
-.event-item .icon {
+.landing-page-container .event-item .icon {
   width: 50px;
   height: 50px;
   background-color: #007bff;
@@ -65,27 +62,32 @@ h2 {
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.5rem; /* You can replace with an icon from a library */
+  font-size: 1.5rem;
   margin-right: 20px;
 }
 
-/* Event Details */
-.event-details {
-  flex-grow: 1; /* Ensures this section expands */
+.landing-page-container .event-details {
+  flex-grow: 1;
 }
 
-.event-details strong {
+.landing-page-container .event-details strong {
   font-size: 1.25rem;
   color: #333;
+  text-decoration: underline;
 }
 
-.event-details p {
+.landing-page-container .event-details p {
   color: #555;
   margin: 5px 0;
 }
 
-/* Join Button */
-.join-btn {
+.landing-page-container .event-details .date {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.landing-page-container .join-btn {
   background-color: #007bff;
   color: white;
   padding: 10px 20px;
@@ -96,12 +98,11 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
-.join-btn:hover {
+.landing-page-container .join-btn:hover {
   background-color: #0056b3;
 }
 
-/* Button for adding event */
-.add-event-btn {
+.landing-page-container .add-event-btn {
   margin-top: 20px;
   padding: 12px 18px;
   background-color: #17a2b8;
@@ -114,19 +115,18 @@ h2 {
   width: 100%;
 }
 
-.add-event-btn:hover {
+.landing-page-container .add-event-btn:hover {
   background-color: #138496;
 }
 
-/* Global Styles */
 body {
-  background-color: #f0f8ff; /* Light blue background */
+  background-color: #f0f8ff;
   font-family: 'Arial', sans-serif;
   margin: 0;
-  padding-top: 60px; /* Adjusted for fixed top bar */
+  padding-top: 60px;
 }
 
-.landing-page {
+.landing-page-container {
   text-align: center;
   width: 100%;
   max-width: 1000px;

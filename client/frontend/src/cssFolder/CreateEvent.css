@@ -1,8 +1,8 @@
-/* Global Styles */
-.home-btn {
+/* Scoping the styles to .create-event-container */
+.create-event-container .home-btn {
   position: absolute;
-  top: 15px; /* Slightly offset from the top */
-  right: 20px; /* Aligns button in the top right corner */
+  top: 15px;
+  right: 20px;
   background-color: #f0f8ff;
   color: #0056b3;
   font-size: 1rem;
@@ -14,120 +14,103 @@
   transition: background-color 0.3s ease;
 }
 
-.home-btn:hover {
-  background-color: #f0f8ffb0; /* Darkens on hover */
+.create-event-container .home-btn:hover {
+  background-color: #f0f8ffb0;
 }
 
-body {
-  background-color: #f0f8ff; /* Soft light blue background */
+.create-event-container .create-event-page {
+  background-color: #f0f8ff;
   font-family: 'Arial', sans-serif;
   margin: 0;
-  height: 100vh; /* Ensure the body takes up full viewport height */
-  display: flex; /* Using Flexbox to center content */
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 0; /* No padding for the top */
 }
 
-/* Card styling */
-.events-container {
+.create-event-container .events-container {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 600px; /* Restrict width to a max value */
+  max-width: 600px;
   padding: 2rem;
-  margin: 30px auto; /* Center and add spacing */
+  margin-top: 50px; /* Adds space to move the content below the top bar */
 }
 
-.events-container:hover {
-  transform: translateY(-10px);
-}
-
-h1, h2 {
-  color: #007bff; /* Blue color for header */
+.create-event-container h1, .create-event-container h2 {
+  color: #007bff;
   font-weight: 600;
   font-size: 2rem;
-  text-align: center; /* Center the header */
+  text-align: center;
   margin-bottom: 1.5rem;
 }
 
-/* Question Styling */
-.question {
-  font-size: 1.1rem; /* Clear, readable font size */
+.create-event-container .question {
+  font-size: 1.1rem;
   font-weight: 500;
-  margin-bottom: 1.8rem; /* Add extra space between questions */
-  line-height: 1.6; /* Comfortable line spacing */
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
   color: #333;
 }
 
-/* Input fields styling */
-input.form-control,
-textarea.form-control {
+.create-event-container input.form-control,
+.create-event-container textarea.form-control {
   border-radius: 10px;
   box-shadow: inset 0 0 5px rgba(0, 123, 255, 0.3);
-  font-size: 1.2rem; /* Increase font size */
-  padding: 12px; /* Slightly increased padding */
-  margin-bottom: 1.2rem; /* Space between input fields */
+  font-size: 1.2rem;
+  padding: 12px;
+  margin-bottom: 1.2rem;
   transition: all 0.3s ease;
-  width: 100%; /* Full width of the card */
+  width: 100%;
   border: 1px solid #ddd;
 }
 
-input.form-control:focus,
-textarea.form-control:focus {
-  border-color: #0056b3;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  font-size: 1.3rem;
+.create-event-container textarea.form-control.description-box {
+  height: 150px; /* Adjust as needed */
 }
 
-/* Buttons */
-button {
+.create-event-container .alert-danger {
+  color: red;
+  margin-top: 1rem;
   font-weight: bold;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  width: 100%; /* Full width for the button */
-  margin-top: 1rem; /* Add space above the button */
+  text-align: center;
 }
 
-button.create-event-btn {
+.create-event-container .create-event-btn {
   background-color: #007bff;
+  color: white;
+  padding: 12px 18px;
   border: none;
-  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
   font-size: 1.2rem;
+  width: 105%;
+  transition: background-color 0.3s ease;
 }
 
-button.create-event-btn:hover {
+.create-event-container .create-event-btn:hover {
   background-color: #0056b3;
 }
 
-button.go-back-btn {
-  background: none;
-  color: #007bff;
-  font-size: 1rem;
-  padding: 0;
-  text-decoration: none;
+.create-event-container .go-back-btn {
+  background-color: #17a2b8;
+  color: white;
+  padding: 12px 18px;
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 105%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
-button.go-back-btn:hover {
-  text-decoration: underline;
-}
-
-/* Alert message styling */
-.alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-  border-color: #f5c6cb;
-  border-radius: 5px;
-  padding: 15px;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Additional Spacing for Questions */
-.question + .form-control,
-textarea.form-control {
-  margin-top: 0.5rem; /* Space between question text and input field */
-  margin-bottom: 2rem; /* Space between questions */
+.create-event-container .go-back-btn:hover {
+  background-color: #138496;
 }

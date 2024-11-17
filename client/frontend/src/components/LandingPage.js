@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import '../cssFolder/LandingPage.css'; // Your CSS for LandingPage
+import Modal from "./Modal"; // Import the Modal component
 
 const LandingPage = ({ user, navigateToCreateEvent }) => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(""); // Error state for displaying errors
+    const [isModalOpen, setIsModalOpen] = useState(false); // Modal open state
+    const [modalMessage, setModalMessage] = useState(""); // Modal message state
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -17,7 +20,7 @@ const LandingPage = ({ user, navigateToCreateEvent }) => {
                 setEvents(data);
                 setLoading(false);
             } catch (error) {
-                setError('Failed to fetch events');
+                setError("Failed to fetch events");
                 setLoading(false);
             }
         };
@@ -38,12 +41,19 @@ const LandingPage = ({ user, navigateToCreateEvent }) => {
 
             const result = await response.json();
             if (response.ok) {
-                alert(result.message); // User joined successfully
+                setModalMessage(result.message); // Set success message
+                setIsModalOpen(true); // Open the modal
+            } else if (result.error === "User already joined the event") {
+                setModalMessage("You have already joined this event!"); // Set error message
+                setIsModalOpen(true); // Open the modal
             } else {
-                alert(result.error); // Error joining event
+                setModalMessage(result.error || "Error joining event");
+                setIsModalOpen(true); // Open the modal
             }
         } catch (err) {
             console.error('Error joining event:', err);
+            setModalMessage("Error joining event");
+            setIsModalOpen(true); // Open the modal
         }
     };
 
@@ -51,12 +61,8 @@ const LandingPage = ({ user, navigateToCreateEvent }) => {
         return <div>Loading events...</div>;
     }
 
-    if (error) {
-        return <div>{error}</div>;
-    }
-
     return (
-        <div className="landing-page">
+        <div className="landing-page-container">
             <div className="top-bar">
                 Welcome to KTPairing! {user && `Logged in as: ${user.email}`} {/* Display email */}
             </div>
@@ -66,9 +72,11 @@ const LandingPage = ({ user, navigateToCreateEvent }) => {
                 <ul>
                     {events.map((event) => (
                         <li key={event.event_id} className="event-item">
-                            <div>
+                            <div className="icon">E</div> {/* Placeholder icon */}
+                            <div className="event-details">
                                 <strong>{event.eventname}</strong>
                                 <p>{event.eventdes}</p>
+                                <p className="date">{new Date(event.dateofevent).toLocaleDateString()}</p>
                             </div>
                             <button 
                                 className="join-btn"
@@ -84,6 +92,13 @@ const LandingPage = ({ user, navigateToCreateEvent }) => {
                     Create Event
                 </button>
             </div>
+
+            {/* Modal for feedback */}
+            <Modal 
+                isOpen={isModalOpen} 
+                message={modalMessage} 
+                onClose={() => setIsModalOpen(false)} // Close modal when clicked
+            />
         </div>
     );
 };
